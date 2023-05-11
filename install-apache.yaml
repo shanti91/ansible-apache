@@ -7,6 +7,8 @@
         name: apache2 
         update_cache: yes 
         state: latest
+      tags:
+        - install
  
     - name: Create document root for domain configured in host variable
       file:
@@ -16,28 +18,40 @@
         group: www-data
         mode: '0755'
       when: false
+      tags:
+        - install
  
     - name: Copy your index file
       template:
         src: "files/index-template.html"
         dest: "/var/www/html/index.html"
+      tags:
+        - install
+        - configure
  
     - name: Set up virtuahHost
       template:
         src: "files/apache-template.conf"
         dest: "/etc/apache2/sites-available/{{ http_conf }}"
       when: false
+      tags:
+        - install
+
  
     - name: Enable site
       command: a2ensite {{ http_conf }}
       notify: restart-apache
       when: false
+      tags:
+        - install
  
     - name: "UFW firewall allow HTTP on port {{ http_port }}"
       ufw:
         rule: allow
         port: "{{ http_port }}"
         proto: tcp
+      tags:
+        - install
  
   handlers:
     - name: restart-apache
