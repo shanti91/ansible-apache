@@ -1,4 +1,4 @@
 [myservers]
-server1 ansible_host=192.168.111.128 ansible_ssh_user=ansible ansible_ssh_private_key_file=ansible.key http_host=barbie http_conf=barbie.conf
+server1 ansible_host=192.168.111.128 ansible_ssh_user=ansible ansible_ssh_private_key_file=ansible.key http_host=hostname http_conf=host.conf
 [myservers:vars]
 http_port=80
