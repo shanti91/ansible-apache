@@ -2,3 +2,4 @@ tensorflow==2.11.1
 uvicorn==0.12.2
 fastapi==0.65.2
 numpy==1.26.1
+pandas=1.2.4
