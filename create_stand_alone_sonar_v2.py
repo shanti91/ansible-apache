@@ -11,7 +11,7 @@ from sonarqube import SonarQubeClient
 ### FUNC ######################################################################################
 def git_clone(repo_name):
     try:
-        repo = git.Repo.clone_from("https://isx46995096:glpat-Qn9SQJiaHgxyYk5GSDYC@gitlab.com/isx46995096/" + repo_name + ".git",
+        repo = git.Repo.clone_from("https://user:token@gitlab.com/user/" + repo_name + ".git",
                                "/home/kadmin/"+repo_name,
                                branch='master')
     except: print("GIT Repository already exists,proceed to create project in sonarqube for first scan")
