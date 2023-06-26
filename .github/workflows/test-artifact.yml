@@ -21,6 +21,14 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: my_file_subido
+    
+  download_other_job_artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download file from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my_file_subido
           path: my_dir/my_file.txt
           
       - name: download file from artifact
