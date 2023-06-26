@@ -1,0 +1,19 @@
+name: Artifact test Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  manage_artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create dir to save file
+        run: mkdir my_dir
+      - name: Create file
+        run: echo "hola mundo" >> my_dir/my_file.txt
+      - name: Uplaod file to artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my_file_subido
+          path: my_file.txt
+          
