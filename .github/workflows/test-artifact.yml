@@ -15,5 +15,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: my_file_subido
-          path: my_file.txt
+          path: my_dir/my_file.txt
           
