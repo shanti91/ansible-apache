@@ -17,3 +17,25 @@ jobs:
           name: my_file_subido
           path: my_dir/my_file.txt
           
+      - name: download file from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my_file_subido
+          path: my_dir/my_file.txt
+          
+      - name: download file from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my_file_subido
+        
+      - name: download file from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my_file.txt
+          path: my_dir/my_file.txt
+          
+      - name: download file from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my_file.txt
+          
