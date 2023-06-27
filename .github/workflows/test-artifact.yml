@@ -9,8 +9,10 @@ jobs:
     steps:
       - name: Create dir to save file
         run: mkdir my_dir
+        
       - name: Create file
         run: echo "hola mundo" >> my_dir/my_file.txt
+        
       - name: Uplaod file to artifact
         uses: actions/upload-artifact@v3
         with:
@@ -21,6 +23,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: my_file_subido
+          
+      - name: Label when approved
+        uses: pullreminders/label-when-approved-action@main
+        env:
+          APPROVALS: "1"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ADD_LABEL: "approved"
     
   download_other_job_artifact:
     runs-on: ubuntu-latest
