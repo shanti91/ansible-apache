@@ -39,29 +39,25 @@ jobs:
           APPROVALS: "1"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ADD_LABEL: "approved"
-    
+  
+  job_test_matrix:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        version: [10, 12]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.version }}
+
   download_other_job_artifact:
     runs-on: ubuntu-latest
     steps:
-      - name: download file from artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: my_file_subido
-          path: my_dir/my_file.txt
           
       - name: download file from artifact
         uses: actions/download-artifact@v3
         with:
           name: my_file_subido
         
-      - name: download file from artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: my_file.txt
-          path: my_dir/my_file.txt
-          
-      - name: download file from artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: my_file.txt
-          
+
