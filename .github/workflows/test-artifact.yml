@@ -7,6 +7,10 @@ on:
       description: 'Log level'     
       required: true
       default: 'warning'
+    variable1:
+      description: 'mi variable custom'
+      required: False
+      default: 'value1test'
 
 jobs:
   manage_artifact:
